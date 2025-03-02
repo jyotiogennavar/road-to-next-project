@@ -2,6 +2,7 @@ import { SquareKanban } from "lucide-react";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { homePath, ticketsPath } from "@/path";
+import { ThemeSwitcher } from "./theme/theme-switcher";
 
 const Navbar = () => {
   return (
@@ -14,12 +15,15 @@ const Navbar = () => {
           </Link>
         </Button>
 
-        <Link
-          href={ticketsPath()}
-          className={buttonVariants({ variant: "ghost" })}
-        >
-          Tickets
-        </Link>
+        <div>
+          <ThemeSwitcher />
+          <Link
+            href={ticketsPath()}
+            className={buttonVariants({ variant: "ghost" })}
+          >
+            Tickets
+          </Link>
+        </div>
       </nav>
     </>
   );

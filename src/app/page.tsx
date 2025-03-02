@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { ticketsPath } from "@/path";
 
 const HomePage = () => {
+  
   return (
     <div className="flex flex-col  gap-4">
 
