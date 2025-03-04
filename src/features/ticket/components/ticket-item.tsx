@@ -19,6 +19,7 @@ interface TicketItemProps {
 }
 
 const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
+  console.log('where am i displaying? (TicketItem) ');
   const detailButton = (
     <Button asChild variant="outline" size="icon">
       <Link href={ticketPath(ticket.id)} className="h-4 w-4">
