@@ -28,3 +28,7 @@ const seed = async () => {
 };
 
 seed();
+
+// The seed.ts file in Prisma is used to populate your database with initial or test data. It allows
+//  you to programmatically insert data into your database when setting up a new environment or
+//  refreshing data for testing.
