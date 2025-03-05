@@ -1,5 +1,3 @@
-"use client";
-
 import { Ticket } from "@prisma/client";
 import clsx from "clsx";
 import { SquareArrowOutUpRight, Trash } from "lucide-react";
@@ -16,7 +14,6 @@ import { ticketPath } from "@/path";
 import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
 
-
 interface TicketItemProps {
   ticket: Ticket;
   isDetail?: boolean;
@@ -31,14 +28,14 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
     </Button>
   );
 
-  const handleDeleteTicket = async () => {
-    await deleteTicket(ticket.id);
-  };
+  // issue faced - the delete btn was not working bcuz i didnt remove the asChild prop from the button.
 
   const deleteButton = (
-    <Button asChild variant="outline" size="icon" onClick={handleDeleteTicket}>
-      <Trash className="h-4 w-4" />
-    </Button>
+    <form action={deleteTicket.bind(null, ticket.id)}>
+      <Button variant="outline" size="icon">
+        <Trash className="h-4 w-4" />
+      </Button>
+    </form>
   );
   return (
     <div
@@ -73,3 +70,4 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
 };
 
 export { TicketItem };
+
