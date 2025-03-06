@@ -1,15 +1,14 @@
-
-
 import { notFound } from "next/navigation";
 import { TicketItem } from "@/features/ticket/components/ticket-item";
 import { getTicket } from "@/features/ticket/queries/get-ticket";
 
-interface Params {
-  ticketId: string;
-}
+type TicketPageProps = {
+  params: Promise<{ ticketId: string }>;
+};
 
-const ticketPage = async ({ params }: { params: Params }) => {
-  const ticket = await getTicket(params.ticketId);
+const ticketPage = async ({ params }: TicketPageProps) => {
+  const { ticketId } = await params;
+  const ticket = await getTicket(ticketId);
 
   if (!ticket) {
     notFound();
@@ -17,7 +16,7 @@ const ticketPage = async ({ params }: { params: Params }) => {
 
   return (
     <div className="flex justify-center">
-      <TicketItem ticket={ticket} isDetail/>
+      <TicketItem ticket={ticket} isDetail />
     </div>
   );
 };
