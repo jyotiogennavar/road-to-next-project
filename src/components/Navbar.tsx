@@ -15,7 +15,7 @@ const Navbar = () => {
           </Link>
         </Button>
 
-        <div>
+        <div className="flex gap-x-2">
           <ThemeSwitcher />
           <Link
             href={ticketsPath()}
