@@ -1,6 +1,6 @@
 import { Ticket } from "@prisma/client";
 import clsx from "clsx";
-import { SquareArrowOutUpRight, Trash } from "lucide-react";
+import { Pencil, SquareArrowOutUpRight, Trash } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ticketPath } from "@/path";
+import { ticketEditPath, ticketPath } from "@/path";
 import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
 
@@ -28,8 +28,15 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
     </Button>
   );
 
-  // issue faced - the delete btn was not working bcuz i didnt remove the asChild prop from the button.
+  const editButton = (
+    <Button asChild variant="outline" size="icon">
+      <Link prefetch href={ticketEditPath(ticket.id)} className="h-4 w-4">
+        <Pencil />
+      </Link>
+    </Button>
+  );
 
+  // issue faced - the delete btn was not working bcuz i didnt remove the asChild prop from the button.
   const deleteButton = (
     <form action={deleteTicket.bind(null, ticket.id)}>
       <Button variant="outline" size="icon">
@@ -62,12 +69,21 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
           </CardDescription>
         </CardContent>
       </Card>
-      <div className="flex flex-col gap-x-1">
-        {isDetail ? deleteButton : detailButton}
+      <div className="flex flex-col gap-1">
+        {isDetail ? (
+          <>
+            {editButton}
+            {deleteButton}
+          </>
+        ) : (
+          <>
+            {detailButton}
+            {editButton}
+          </>
+        )}
       </div>
     </div>
   );
 };
 
 export { TicketItem };
-
