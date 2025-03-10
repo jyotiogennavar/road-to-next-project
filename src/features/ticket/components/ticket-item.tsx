@@ -31,7 +31,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
   const editButton = (
     <Button asChild variant="outline" size="icon">
       <Link prefetch href={ticketEditPath(ticket.id)} className="h-4 w-4">
-        <Pencil />
+        <Pencil/>
       </Link>
     </Button>
   );
