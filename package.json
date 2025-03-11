@@ -42,5 +42,13 @@
     "tailwindcss": "^3.4.1",
     "tsx": "^4.19.3",
     "typescript": "^5"
+  },
+  "eslintConfig": {
+    "extends": ["next/core-web-vitals"],
+    "plugins": ["simple-import-sort"],
+    "rules": {
+      "simple-import-sort/imports": "warn",
+      "simple-import-sort/exports": "warn"
+    }
   }
 }
