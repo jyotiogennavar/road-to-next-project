@@ -6,6 +6,11 @@ export type ActionState = {
   fieldErrors?: Record<string, string[] | undefined>;
 };
 
+export const EMPTY_ACTION_STATE: ActionState = {
+  message: "",
+  fieldErrors: {},
+};
+
 export const fromErrorToActionState = (
   error: unknown,
   formData?: FormData
