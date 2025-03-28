@@ -1,6 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { setCookiebyKey } from "@/actions/cooies";
 import { prisma } from "@/lib/prisma";
 import { ticketsPath } from "@/path";
 
@@ -14,8 +15,9 @@ export const deleteTicket = async (id: string) => {
   });
 
   revalidatePath(ticketsPath());
+  setCookiebyKey("toast", "Ticket deleted");
   redirect(ticketsPath());
-}
+} 
 
 
 // the aim in next js is to keep any component as server component as possible
