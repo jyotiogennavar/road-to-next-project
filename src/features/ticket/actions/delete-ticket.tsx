@@ -22,7 +22,7 @@ export const deleteTicket = async (id: string) => {
 
 // the aim in next js is to keep any component as server component as possible
 // so that we can use the server component to fetch data from the server. Now at times when we
-//  need server functions in client components we can Server actions to do that. 
+//  need server functions in client components we can use Server actions to do that. 
 // Server actions are just functions that are imported in the client component and used to perform server side actions.
 // here the delete function is a server action that is imported in the client component and used to delete the ticket.
 

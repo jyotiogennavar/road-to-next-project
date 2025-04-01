@@ -7,22 +7,23 @@ import { TicketUpsertForm } from "@/features/ticket/components/ticket-upsert-for
 
 const TicketsPage = () => {
   return (
-    <div className="flex-1 flex flex-col gap-y-4">
-      <Header title="Tickets" subtitle="Manage your tickets here" />
+    <>
+      <div className="flex-1 flex flex-col gap-y-4">
+        <Header title="Tickets" subtitle="Manage your tickets here" />
 
-      <CardCompact
-        title="Create a ticket"
-        description="Create a new ticket to get help"
-        content={<TicketUpsertForm />}
-        className="w-full max-w-[420px] self-center"
-      />
-
+        <CardCompact
+          title="Create a ticket"
+          description="Create a new ticket to get help"
+          content={<TicketUpsertForm />}
+          className="w-full max-w-[420px] self-center"
+        />
 
         <Suspense fallback={<Spinner />}>
           <TicketList />
         </Suspense>
-
-    </div>
+      </div>
+      
+    </>
   );
 };
 
