@@ -20,7 +20,6 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
     EMPTY_ACTION_STATE
   );
 
-
   return (
     <Form action={action} actionState={actionState}>
       <Label htmlFor="title">Title</Label>
@@ -43,7 +42,36 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
           (actionState.payload?.get("content") as string) ?? ticket?.content
         }
       />
-      <FieldError actionState={actionState} name="content" />
+      <div className="flex gap-x-4 mb-4">
+        <div className="w-1/2">
+          <Label htmlFor="deadline">Deadline</Label>
+          <Input
+            type="date"
+            id="deadline"
+            name="deadline"
+            defaultValue={
+              (actionState.payload?.get("deadline") as string) ??
+              ticket?.deadline
+            }
+          />
+        </div>
+
+        <div className="w-1/2">
+          {" "}
+          <Label htmlFor="bounty">Bounty ($)</Label>
+          <Input
+            type="number"
+            step="0.01"
+            id="bounty"
+            name="bounty"
+            defaultValue={
+              (actionState.payload?.get("bounty") as string) ?? ticket?.bounty
+            }
+          />
+        </div>
+
+        <FieldError actionState={actionState} name="content" />
+      </div>
 
       <SubmitButton label={ticket ? "Edit" : "Create"} />
 
