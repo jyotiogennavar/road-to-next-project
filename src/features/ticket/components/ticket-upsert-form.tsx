@@ -47,17 +47,8 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
       <div className="flex gap-x-4 mb-4">
         <div className="w-1/2">
           <Label htmlFor="deadline">Deadline</Label>
-          {/* <Input
-            type="date"
-            id="deadline"
-            name="deadline"
-            defaultValue={
-              (actionState.payload?.get("deadline") as string) ??
-              ticket?.deadline
-            }
-          /> */}
-
           <DatePicker
+            key={actionState.timestamp}
             id="deadline"
             name="deadline"
             defaultValue={
