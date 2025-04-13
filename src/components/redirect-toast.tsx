@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
-import { deleteCookiebyKey, getCookiebyKey } from "@/actions/cooies";
+import { deleteCookiebyKey, getCookiebyKey } from "@/actions/cookies";
 
 
 const RedirectToast = () => {

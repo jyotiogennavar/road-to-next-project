@@ -11,7 +11,6 @@ type TicketEditPageProps = {
 
 const TicketEditPage = async ({ params }: TicketEditPageProps) => {
   const ticket = await getTicket(params.ticketId);
-  console.log('params', params);
 
   if (!ticket) {
     notFound();
@@ -20,7 +19,7 @@ const TicketEditPage = async ({ params }: TicketEditPageProps) => {
     <div className="flex-1 flex flex-col justify-center items-center">
       <CardCompact
         title="Edit ticket"
-        content={<TicketUpsertForm ticket={ticket}/>}
+        content={<TicketUpsertForm ticket={ticket} />}
         description="Edit an existing ticket"
         className="w-full max-w-[420px]"
       />
