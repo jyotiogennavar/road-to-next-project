@@ -3,18 +3,18 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
-import { deleteCookiebyKey, getCookiebyKey } from "@/actions/cookies";
+import { deleteCookieByKey, getCookieByKey } from "@/actions/cookies";
 
 
 const RedirectToast = () => {
   const pathname = usePathname();
   useEffect(() => {
     const showCookieToast = async () => {
-      const message = await getCookiebyKey("toast");
+      const message = await getCookieByKey("toast");
 
       if (message) {
         toast.success(message);
-        deleteCookiebyKey("toast");
+        deleteCookieByKey("toast");
       }
     };
 
