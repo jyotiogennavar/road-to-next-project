@@ -1,6 +1,6 @@
 import { Ticket } from "@prisma/client";
 import clsx from "clsx";
-import { Pencil, SquareArrowOutUpRight, Trash } from "lucide-react";
+import { MoreVertical, Pencil, SquareArrowOutUpRight, Trash } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,7 @@ import { ticketEditPath, ticketPath } from "@/path";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
+import { TicketMoreMenu } from "./ticket-more-menu";
 
 interface TicketItemProps {
   ticket: Ticket;
@@ -33,7 +34,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
   const editButton = (
     <Button asChild variant="outline" size="icon">
       <Link prefetch href={ticketEditPath(ticket.id)} className="h-4 w-4">
-        <Pencil/>
+        <Pencil />
       </Link>
     </Button>
   );
@@ -45,6 +46,17 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
         <Trash className="h-4 w-4" />
       </Button>
     </form>
+  );
+
+  const moreMenu = (
+    <TicketMoreMenu
+      ticket={ticket}
+      trigger={
+        <Button variant="outline" size="icon">
+          <MoreVertical className="h-4 w-4" />
+        </Button>
+      }
+    />
   );
   return (
     <div
@@ -72,7 +84,9 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
         </CardContent>
         <CardFooter className="flex justify-between">
           <p className="text-sm text-muted-foreground">{ticket.deadline}</p>
-          <p className="text-sm text-muted-foreground">{toCurrencyFromCent(ticket.bounty) }</p>
+          <p className="text-sm text-muted-foreground">
+            {toCurrencyFromCent(ticket.bounty)}
+          </p>
         </CardFooter>
       </Card>
       <div className="flex flex-col gap-1">
@@ -80,6 +94,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
           <>
             {editButton}
             {deleteButton}
+            {moreMenu}
           </>
         ) : (
           <>
