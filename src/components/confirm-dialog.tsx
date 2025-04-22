@@ -28,13 +28,16 @@ const UseConfirmDialog = ({
 }: UseConfirmDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const dialogTrigger = cloneElement(trigger as React.ReactElement<any>, {
+  const dialogTrigger = cloneElement(trigger as React.ReactElement<React.HTMLAttributes<HTMLElement>>, {
     onClick: () => {
       setIsOpen((state) => !state);
     },
   });
 
-  const [actionState, formAction] = useActionState(action, EMPTY_ACTION_STATE);
+  const [actionState, formAction] = useActionState(
+    (state: ActionState) => action() || state,
+    EMPTY_ACTION_STATE
+  );
 
   const handleSuccess = () => {
     setIsOpen(false);
