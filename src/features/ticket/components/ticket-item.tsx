@@ -1,6 +1,10 @@
 import { Ticket } from "@prisma/client";
 import clsx from "clsx";
-import { MoreVertical, Pencil, SquareArrowOutUpRight, Trash } from "lucide-react";
+import {
+  MoreVertical,
+  Pencil,
+  SquareArrowOutUpRight,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +17,6 @@ import {
 } from "@/components/ui/card";
 import { ticketEditPath, ticketPath } from "@/path";
 import { toCurrencyFromCent } from "@/utils/currency";
-import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
 import { TicketMoreMenu } from "./ticket-more-menu";
 
@@ -40,13 +43,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
   );
 
   // issue faced - the delete btn was not working bcuz i didnt remove the asChild prop from the button.
-  const deleteButton = (
-    <form action={deleteTicket.bind(null, ticket.id)}>
-      <Button variant="outline" size="icon">
-        <Trash className="h-4 w-4" />
-      </Button>
-    </form>
-  );
+
 
   const moreMenu = (
     <TicketMoreMenu
@@ -93,7 +90,6 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
         {isDetail ? (
           <>
             {editButton}
-            {deleteButton}
             {moreMenu}
           </>
         ) : (

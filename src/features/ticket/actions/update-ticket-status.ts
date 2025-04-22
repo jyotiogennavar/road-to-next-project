@@ -10,7 +10,7 @@ import { prisma } from "@/lib/prisma";
 import { ticketsPath } from "@/path";
 
 const updateTicketStatus = async (id: string, status: TicketStatus) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate a delay
+  await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate a delaye
   try {
     await prisma.ticket.update({
       where: { id },
