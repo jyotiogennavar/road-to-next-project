@@ -16,7 +16,7 @@ const upsertTicketSchema = z.object({
   title: z.string().min(3).max(255),
   content: z.string().min(3).max(1024),
   deadline: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "is required"),
-  bounty : z.coerce.number().min(0).max(9999),
+  bounty: z.coerce.number().positive(),
 });
 
 const upsertTicket = async (
@@ -51,7 +51,7 @@ const upsertTicket = async (
   revalidatePath(ticketsPath());
 
   if (id) {
-    setCookieByKey("toast", "Ticket updated");
+    await setCookieByKey("toast", "Ticket updated");
     redirect(ticketPath(id));
   }
 

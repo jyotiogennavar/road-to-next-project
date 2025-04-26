@@ -10,7 +10,13 @@ type FormProps = {
   onError?: (actionState: ActionState) => void;
 };
 
-const Form = ({ action, actionState, children, onSuccess, onError }: FormProps) => {
+const Form = ({
+  action,
+  actionState,
+  children,
+  onSuccess,
+  onError,
+}: FormProps) => {
   useActionFeedback(actionState, {
     onSuccess: ({ actionState }) => {
       if (actionState.message) {
