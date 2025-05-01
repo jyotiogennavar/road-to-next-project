@@ -11,21 +11,43 @@ const SignUpForm = () => {
   const [actionState, action] = useActionState(signUp, EMPTY_ACTION_STATE);
   return (
     <Form action={action} actionState={actionState}>
-      <Input className="mt-2" type="text" name="username" placeholder="Username" required />
+      <Input
+        className="mt-2"
+        type="text"
+        name="username"
+        placeholder="Username"
+        defaultValue={actionState.payload?.get("username") as string}
+      />
       <FieldError name="username" actionState={actionState} />
-      
-      <Input className="mt-2" type="email" name="email" placeholder="Email" required />
+
+      <Input
+        className="mt-2"
+        type="email"
+        name="email"
+        placeholder="Email"
+        defaultValue={actionState.payload?.get("email") as string}
+      />
       <FieldError name="email" actionState={actionState} />
-      
-      <Input className="mt-2" type="password" name="password" placeholder="Password" required />
+
+      <Input
+        className="mt-2"
+        type="password"
+        name="password"
+        placeholder="Password"
+        defaultValue={actionState.payload?.get("password") as string}
+      />
       <FieldError name="password" actionState={actionState} />
-      
-      <Input className="mt-2" type="password" name="confirmPassword" placeholder="Confirm Password" required />
+
+      <Input
+        className="mt-2"
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        defaultValue={actionState.payload?.get("confirmPassword") as string}
+      />
       <FieldError name="confirmPassword" actionState={actionState} />
-      
-      
+
       <SubmitButton label="Sign Up" />
-  
     </Form>
   );
 };
