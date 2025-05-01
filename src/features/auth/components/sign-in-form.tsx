@@ -1,6 +1,6 @@
 "use client";
 
-import {  useActionState } from "react";
+import { useActionState } from "react";
 import { FieldError } from "@/components/form/field-error";
 import { Form } from "@/components/form/form";
 import { SubmitButton } from "@/components/form/submit-button";
@@ -10,15 +10,15 @@ import { signIn } from "../actions/sign-in";
 
 export const SignInForm = () => {
 
-  const [actionState, action] = useActionState(signIn, EMPTY_ACTION_STATE)
+  const [actionState, action] = useActionState(signIn, EMPTY_ACTION_STATE);
 
   return (
     <Form action={action} actionState={actionState}>
       
-      <Input type="email" placeholder="Email" required />
+      <Input type="email" name="email" placeholder="Email" />
       <FieldError name="email" actionState={actionState} />
 
-      <Input type="password" placeholder="Password" required />
+      <Input type="password" name="password" placeholder="Password" />
       <FieldError name="password" actionState={actionState} />
       
       <SubmitButton label="Sign In" />
