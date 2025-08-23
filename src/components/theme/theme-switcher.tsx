@@ -1,10 +1,29 @@
 "use client";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 
 const ThemeSwitcher = () => {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <Button
+        variant="outline"
+        size="icon"
+        className="bg-primary text-white px-4 py-2 rounded-md"
+      >
+        <Sun className="h-4 w-4" />
+        <span className="sr-only">toggle theme</span>
+      </Button>
+    );
+  }
 
   return (
     <Button
