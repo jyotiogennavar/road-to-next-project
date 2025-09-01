@@ -294,3 +294,21 @@ Notes:
 - Implement cookie helpers for UX toasts.
 - Build tickets CRUD with server actions; validate with Zod; revalidate paths.
 - Use client wrappers (`Form`, `SubmitButton`, `use-action-feedback`) for ergonomic submissions and toasts.
+
+## Changelog
+
+### feat: enhance Navbar with user authentication and sign-out functionality; update SubmitButton for icon support and variant options; improve ThemeSwitcher with mounted state handling (c04a632)
+- author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
+- date: 2025-08-23T12:46:19+05:30
+- files:
+  - A PROJECT_DOCUMENTATION.md
+  - M package.json
+  - A scripts/update-docs.js
+
+### feat: enhance Navbar with user authentication and sign-out functionality; update SubmitButton for icon support and variant options; improve ThemeSwitcher with mounted state handling (c04a632)
+- author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
+- date: 2025-08-23T12:46:19+05:30
+- files:
+  - A PROJECT_DOCUMENTATION.md
+  - M package.json
+  - A scripts/update-docs.js
