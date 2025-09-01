@@ -10,7 +10,9 @@
     "lint-fix": "next lint --fix",
     "type": "tsc --noEmit",
     "postinstall": "prisma generate",
-    "prisma-seed": "tsx prisma/seed.ts"
+    "prisma-seed": "tsx prisma/seed.ts",
+    "docs:update": "node scripts/update-docs.js",
+    "hooks:install": "node -e \"const fs=require('fs'),p=require('path');const hook=p.join('.git','hooks','pre-commit');fs.mkdirSync(p.dirname(hook),{recursive:true});fs.writeFileSync(hook,'#!/bin/sh\\nnpm run docs:update\\n','utf8');require('fs').chmodSync(hook,0o755);console.log('pre-commit hook installed.');\""
   },
   "dependencies": {
     "@lucia-auth/adapter-prisma": "^4.0.1",
