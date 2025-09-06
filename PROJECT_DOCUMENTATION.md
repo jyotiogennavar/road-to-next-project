@@ -297,6 +297,12 @@ Notes:
 
 ## Changelog
 
+### feat: add project documentation and update scripts for automated changelog generation; enhance package.json with pre-commit hook and documentation update command (d5d89cb)
+- author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
+- date: 2025-09-01T09:43:21+05:30
+- files:
+  - M PROJECT_DOCUMENTATION.md
+
 ### feat: enhance Navbar with user authentication and sign-out functionality; update SubmitButton for icon support and variant options; improve ThemeSwitcher with mounted state handling (c04a632)
 - author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
 - date: 2025-08-23T12:46:19+05:30

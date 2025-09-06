@@ -14,8 +14,10 @@ model User {
   email        String    @unique
   passwordHash String
   sessions     Session[]
+  tickets      Ticket[]
 }
 
+// user can have many tickets but ticket can only have one user. 
 model Session {
   id        String   @id
   expiresAt DateTime
@@ -34,6 +36,10 @@ model Ticket {
   status    TicketStatus @default(OPEN)
   deadline  String
   bounty    Int
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 enum TicketStatus {

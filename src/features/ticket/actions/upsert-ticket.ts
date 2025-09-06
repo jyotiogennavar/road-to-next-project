@@ -2,14 +2,15 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { setCookieByKey} from "@/actions/cookies";
+import { setCookieByKey } from "@/actions/cookies";
 import {
   ActionState,
   fromErrorToActionState,
   toActionState,
 } from "@/components/form/utils/to-action-state";
+import { getAuth } from "@/features/auth/queries/get-auth";
 import { prisma } from "@/lib/prisma";
-import { ticketPath, ticketsPath } from "@/path";
+import { signInPath, ticketPath, ticketsPath } from "@/path";
 import { toCent } from "@/utils/currency";
 
 const upsertTicketSchema = z.object({
@@ -24,6 +25,12 @@ const upsertTicket = async (
   _actionState: ActionState,
   formData: FormData
 ) => {
+  const { user } = await getAuth();
+
+  if (!user) {
+    redirect(signInPath());
+  }
+
   try {
     const data = upsertTicketSchema.parse({
       title: formData.get("title"),
@@ -34,8 +41,9 @@ const upsertTicket = async (
 
     const dbData = {
       ...data,
+      userId: user.id,
       bounty: toCent(data.bounty),
-    }
+    };
 
     await prisma.ticket.upsert({
       where: {
@@ -55,7 +63,7 @@ const upsertTicket = async (
     redirect(ticketPath(id));
   }
 
-  return toActionState("SUCCESS" ,'Ticket created ');
+  return toActionState("SUCCESS", "Ticket created ");
 };
 
 export { upsertTicket };
