@@ -297,6 +297,12 @@ Notes:
 
 ## Changelog
 
+### feat: update Prisma schema to associate tickets with users; enhance ticket creation logic in seed script and upsert functionality to include user information (6898626)
+- author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
+- date: 2025-09-06T15:52:06+05:30
+- files:
+  - M PROJECT_DOCUMENTATION.md
+
 ### docs: update PROJECT_DOCUMENTATION.md to include changelog entries for Navbar enhancements, SubmitButton updates, and ThemeSwitcher improvements (8be40d6)
 - author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
 - date: 2025-09-01T09:43:45+05:30

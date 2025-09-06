@@ -1,3 +1,4 @@
+
 import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { Spinner } from "@/components/spinner";
@@ -5,7 +6,9 @@ import { CardCompact } from "@/components/ui/card-compact";
 import { TicketList } from "@/features/ticket/components/ticket-list";
 import { TicketUpsertForm } from "@/features/ticket/components/ticket-upsert-form";
 
-const TicketsPage = () => {
+
+const TicketsPage = async () => {
+
   return (
     <>
       <div className="flex-1 flex flex-col gap-y-4">
@@ -22,7 +25,6 @@ const TicketsPage = () => {
           <TicketList />
         </Suspense>
       </div>
-      
     </>
   );
 };
