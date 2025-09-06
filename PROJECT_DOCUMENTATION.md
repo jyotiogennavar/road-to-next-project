@@ -297,6 +297,20 @@ Notes:
 
 ## Changelog
 
+### docs: update PROJECT_DOCUMENTATION.md to include changelog entries for Navbar enhancements, SubmitButton updates, and ThemeSwitcher improvements (8be40d6)
+- author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
+- date: 2025-09-01T09:43:45+05:30
+- files:
+  - M PROJECT_DOCUMENTATION.md
+  - M package-lock.json
+  - M package.json
+  - M prisma/schema.prisma
+  - M prisma/seed.ts
+  - M src/features/ticket/actions/upsert-ticket.ts
+  - M src/features/ticket/components/ticket-item.tsx
+  - M src/features/ticket/queries/get-ticket.ts
+  - M src/features/ticket/queries/get-tickets.ts
+
 ### feat: add project documentation and update scripts for automated changelog generation; enhance package.json with pre-commit hook and documentation update command (d5d89cb)
 - author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
 - date: 2025-09-01T09:43:21+05:30
