@@ -297,6 +297,18 @@ Notes:
 
 ## Changelog
 
+### docs: update PROJECT_DOCUMENTATION.md to reflect recent changelog entries for Navbar, SubmitButton, and ThemeSwitcher enhancements (df260e6)
+- author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
+- date: 2025-09-06T15:52:40+05:30
+- files:
+  - A Autherization.md
+  - M PROJECT_DOCUMENTATION.md
+  - M README.md
+  - A src/app/tickets/layout.tsx
+  - M src/app/tickets/page.tsx
+  - M src/features/auth/hooks/use-auth.ts
+  - A src/features/auth/queries/get-auth-or-redirect.ts
+
 ### feat: update Prisma schema to associate tickets with users; enhance ticket creation logic in seed script and upsert functionality to include user information (6898626)
 - author: Jyoti Ogennavar <jyoti.ogennavar@xecurify.com>
 - date: 2025-09-06T15:52:06+05:30
